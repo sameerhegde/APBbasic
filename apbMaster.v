@@ -54,6 +54,7 @@ module apbMaster
 					else 
 						nextState <= IDLE;
 				end
+			default: nextState <= IDLE;
 		endcase
 	end
 	
@@ -70,6 +71,10 @@ module apbMaster
 			ACCESS:begin
 					{PSEL1,PSEL2} = PADDRin[ADDWIDTH]? 2'b01 : 2'b10 ;
 					PENABLE = 1'b1;
+				end
+			default:begin
+					{PSEL1,PSEL2} = 2'b00;
+					PENABLE = 1'b0;
 				end
 		endcase
 	end
