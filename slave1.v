@@ -8,8 +8,8 @@ module slave1
 	input [ADDWIDTH-1:0]PADDR,
 	input [(DATAWIDTH/8)-1:0]PSTRB,
 	input [DATAWIDTH-1:0]PWDATA,
-	output PREADY;
-	output reg[DATAWIDTH-1:0]PRDATA,
+	output PREADY,
+	output reg[DATAWIDTH-1:0]PRDATA
 	);
 	
 	reg [DATAWIDTH-1:0]mem[0:(2**ADDWIDTH)-1];
@@ -24,7 +24,7 @@ module slave1
 			// if(PSTRB[3]) mem[PADDR][31:24] <= PWDATA[31:24];
 					
 			for(integer i = 0; i < (DATAWIDTH/8); i = i +1)begin
-				if(PSTRB[i]) mem[PADDR][(i*8)+7:i*8] <= PWDATA[(i*8)+7:i*8]
+				if(PSTRB[i]) mem[PADDR][(i*8)+:8] <= PWDATA[(i*8)+:8];
 			end
 		end
 	end
@@ -34,7 +34,7 @@ module slave1
 		if(!PRESETn)begin
 			PRDATA <= 'b0;
 		end
-		else
+		else begin
 			if(!PWRITE)
 				PRDATA <= mem[PADDR];
 			else
