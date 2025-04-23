@@ -86,8 +86,8 @@ module tb_topAPB();
         PWRITE = 0;
         transfer = 1;
         PADDR = 9'b0_0000_0000;#10 $display("Read data: %h", PRDATA);#10
-		PADDR = 9'b0_0000_0001;#10 $display("Read data: %h", PRDATA);#10
-		PADDR = 9'b1_0000_0010;#10 $display("Read data: %h", PRDATA);#10
+	PADDR = 9'b0_0000_0001;#10 $display("Read data: %h", PRDATA);#10
+	PADDR = 9'b1_0000_0010;#10 $display("Read data: %h", PRDATA);#10
         #30 transfer = 0;
 
         #20 $finish;
