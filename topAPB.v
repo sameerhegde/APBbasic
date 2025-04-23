@@ -1,4 +1,5 @@
-module apbTop #(parameter ADDWIDTH = 8, DATAWIDTH = 32) (
+module topAPB
+	#(parameter ADDWIDTH = 8, DATAWIDTH = 32) (
     input PCLK,
     input PRESETn,
     input PWRITE,
