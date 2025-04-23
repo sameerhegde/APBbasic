@@ -23,6 +23,7 @@ module apbMUX
 			default:begin
 				{PSEL1out,PSEL2out} = 2'b00;
 				PRDATAout = 'b0;
+				PREADY = 'b0;
 				end
 		endcase
 	end
