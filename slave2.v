@@ -19,7 +19,6 @@ module slave2
 	/********** Write operation to memory **********/
 	always@(posedge PCLK)begin
 		if(PRESETn && PSEL && PENABLE && PWRITE) begin
-			PRDATA <= 'b0;
 			if(PSTRB[0]) mem[PADDR][7:0] <= PWDATA[7:0];
 			if(PSTRB[1]) mem[PADDR][15:8] <= PWDATA[15:8];
 			if(PSTRB[2]) mem[PADDR][23:16] <= PWDATA[23:16];
