@@ -37,7 +37,7 @@ module slave2
 			PRDATA <= 'b0;
 		end
 		else begin
-			if(!PWRITE)
+			if(PSEL && PENABLE && !PWRITE)
 				PRDATA <= mem[PADDR];
 			else
 				PRDATA <= 'b0;
