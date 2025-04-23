@@ -13,6 +13,7 @@ module slave1
 	);
 	
 	reg [DATAWIDTH-1:0]mem[0:(2**ADDWIDTH)-1];
+	integer i;
 	
 	/********** Write operation to memory **********/
 	always@(posedge PCLK)begin
@@ -23,7 +24,7 @@ module slave1
 			// if(PSTRB[2]) mem[PADDR][23:16] <= PWDATA[23:16];
 			// if(PSTRB[3]) mem[PADDR][31:24] <= PWDATA[31:24];
 					
-			for(integer i = 0; i < (DATAWIDTH/8); i = i +1)begin
+			for(i = 0; i < (DATAWIDTH/8); i = i +1)begin
 				if(PSTRB[i]) mem[PADDR][(i*8)+:8] <= PWDATA[(i*8)+:8];
 			end
 		end
