@@ -69,7 +69,7 @@ module apbMaster
 				end
 			ACCESS:begin
 					{PSEL1,PSEL2} = PADDRin[ADDWIDTH]? 2'b01 : 2'b10 ;
-					PENABLE = 1'b0;
+					PENABLE = 1'b1;
 				end
 		endcase
 	end
