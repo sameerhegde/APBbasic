@@ -1,4 +1,4 @@
-module slave1
+module slave2
 	#(parameter ADDWIDTH = 8, DATAWIDTH = 32)(
 	input PCLK,
 	input PRESETn,
